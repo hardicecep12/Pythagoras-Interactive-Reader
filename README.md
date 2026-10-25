@@ -15,8 +15,8 @@ Pythagoras Interactive Reader adalah aplikasi modul interaktif berbasis web yang
 - Fitur Kenyamanan Pembaca:
   - Pengatur Kecerahan: Slider brightness bawaan untuk penyesuaian kenyamanan mata.
   - Mode Fullscreen Ganda:
-    - Pseudo Fullscreen: Pengujian layar penuh berbasis tab (memudahkan debugging).
-    - True Native Fullscreen: Mode layar penuh (browser native).
+    - Pseudo Fullscreen: Pengujian layar penuh berbasis tab.
+    - True Native Fullscreen: Mode layar penuh.
 - Panel Samping Interaktif:
   - Glosarium: Daftar istilah penting terkait materi.
   - Catatan Pribadi: Area teks khusus bagi siswa atau pengguna untuk menulis catatan saat belajar.
