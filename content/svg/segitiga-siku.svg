@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 300" width="100%" role="img" aria-label="Diagram Segitiga Siku-Siku Minimalis">
+  <!-- Elemen Utama Segitiga Siku-Siku -->
+  <!-- Titik A (80, 240), B (380, 240), C (380, 60) -->
+  <polygon points="80,240 380,240 380,60" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+
+  <!-- Penanda Sudut Siku-siku (di Titik B) -->
+  <path d="M 360,240 L 360,220 L 380,220" fill="none" stroke="currentColor" stroke-width="1.5" />
+
+  <!-- Arcus / Busur Sudut θ (di Titik A) -->
+  <path d="M 130,240 A 50,50 0 0,0 122,215" fill="none" stroke="currentColor" stroke-width="1.5" />
+  <text x="140" y="230" fill="currentColor" font-size="14" font-family="sans-serif">θ</text>
+
+  <!-- Titik-Titik Sudut (Vertices) -->
+  <circle cx="80" cy="240" r="3.5" fill="currentColor" />
+  <text x="60" y="255" fill="currentColor" font-size="14" font-family="sans-serif" font-weight="600">A</text>
+
+  <circle cx="380" cy="240" r="3.5" fill="currentColor" />
+  <text x="395" y="255" fill="currentColor" font-size="14" font-family="sans-serif" font-weight="600">B</text>
+
+  <circle cx="380" cy="60" r="3.5" fill="currentColor" />
+  <text x="395" y="55" fill="currentColor" font-size="14" font-family="sans-serif" font-weight="600">C</text>
+
+  <!-- Label Sisi-Sisi -->
+  <!-- Alas (a) -->
+  <text x="230" y="270" text-anchor="middle" fill="currentColor" font-size="14" font-family="sans-serif">
+    Alas (<tspan font-weight="bold">a</tspan>)
+  </text>
+
+  <!-- Tinggi (b) -->
+  <text x="405" y="155" text-anchor="start" fill="currentColor" font-size="14" font-family="sans-serif">
+    Tinggi (<tspan font-weight="bold">b</tspan>)
+  </text>
+
+  <!-- Hipotenusa (c) -->
+  <text x="220" y="135" text-anchor="middle" fill="currentColor" font-size="14" font-family="sans-serif" transform="rotate(-31 220 135)">
+    Hipotenusa (<tspan font-weight="bold">c</tspan>)
+  </text>
+</svg>

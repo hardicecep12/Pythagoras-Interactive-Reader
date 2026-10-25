@@ -1,0 +1,380 @@
+/* ================= CSS VARIABLES (KONTROL BEZEL & WARNA) ================= */
+:root {
+  /* Bezel tipis 1px abu-abu halus */
+  --widget-bezel-width: 1px;
+  --widget-bezel-color: #E2E8F0; 
+  
+  /* Warna Abu-abu Agak Tua (Slate 600) untuk Tombol, Badge, & Slider */
+  --btn-gray: #475569; 
+  --btn-gray-hover: #334155;
+  
+  /* Warna Teks Abu-abu (Bukan Hitam Pekat) */
+  --text-dark-gray: #334155;  /* Abu-abu gelap untuk judul/teks utama */
+  --text-muted-gray: #64748B; /* Abu-abu sedang untuk subtitle/keterangan */
+}
+
+/* ================= GLOBAL RESET & FONT UTAMA ================= */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+html, body {
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(135deg, #C7D2FE 0%, #FBCFE8 50%, #BAE6FD 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px; /* MODE BIASA: Bingkai warna-warni melayang di 4 sisi */
+  color: var(--text-dark-gray);
+  font-weight: 400;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+  transition: padding 0.25s ease;
+}
+
+input, button, textarea, select {
+  font-family: inherit !important;
+}
+
+/* ================= ATURAN FONT & BOLD ================= */
+body, p, li, td, th, span, div, h3, h4, h5, h6, 
+.panel-title, .drawer-title, .card-step, .lesson-btn, 
+.fact-label, .hero-subtitle, .fact-number,
+.main-content, .lesson-article, .lesson-article * {
+  font-weight: 400 !important;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif !important;
+}
+
+/* TETAP BOLD HANYA UNTUK JUDUL UTAMA (H1, H2) DENGAN WARNA ABU-ABU GELAP */
+.lesson-article h2, 
+.dashboard-hero h1 {
+  font-weight: 700 !important;
+  color: var(--text-dark-gray) !important;
+}
+
+/* KHUSUS PERSAMAAN MATEMATIS (KaTeX) */
+.katex, 
+.katex-display, 
+.katex * {
+  font-weight: 700 !important;
+  font-style: normal !important;
+  font-family: "Cambria Math", "Cambria", "Times New Roman", serif !important;
+  color: var(--text-dark-gray) !important;
+}
+
+/* ================= CONTAINER UTAMA (MODE BIASA / FLOATING CARD) ================= */
+.reader-card {
+  width: 100%;
+  max-width: 1400px;
+  height: 100%;
+  background: #FFFFFF;
+  border-radius: 16px; /* MODE BIASA: Membulat di 4 sudut */
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.08);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: max-width 0.25s ease, border-radius 0.25s ease;
+}
+
+/* ================= PSEUDO FULLSCREEN MODE ================= */
+body.is-simulated-fullscreen {
+  padding: 12px 12px 0 12px !important; /* Latar warna-warni di Atas, Kanan, Kiri | Bawah menempel */
+}
+
+body.is-simulated-fullscreen .reader-card {
+  max-width: 100vw !important;
+  height: 100% !important;
+  border-radius: 12px 12px 0 0 !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+/* ================= TRUE NATIVE FULLSCREEN MODE ================= */
+:root:fullscreen body,
+:root:-webkit-full-screen body {
+  padding: 12px 12px 0 12px !important;
+  height: 100vh !important;
+  overflow: hidden !important;
+  background: linear-gradient(135deg, #C7D2FE 0%, #FBCFE8 50%, #BAE6FD 100%) !important;
+}
+
+:root:fullscreen .reader-card,
+:root:-webkit-full-screen .reader-card {
+  width: 100% !important;
+  max-width: 100% !important;
+  height: 100% !important;
+  border-radius: 12px 12px 0 0 !important;
+  border: 1px solid #E2E8F0 !important;
+  border-bottom: none !important;
+  box-shadow: 0 -4px 20px rgba(15, 23, 42, 0.08) !important;
+}
+
+/* ================= BAR ATAS TERKUNCI ================= */
+.reader-header {
+  height: 60px;
+  flex-shrink: 0;
+  border-bottom: 1px solid #E2E8F0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  background: #FFFFFF;
+  z-index: 10;
+}
+
+.window-dots { display: flex; gap: 8px; }
+.dot { width: 10px; height: 10px; border-radius: 50%; }
+.dot.red { background: #CBD5E1; }
+.dot.yellow { background: #94A3B8; }
+.dot.green { background: #3B82F6; }
+
+.header-title { font-size: 13px; color: var(--text-muted-gray); }
+
+.header-actions { display: flex; align-items: center; gap: 12px; }
+
+/* SLIDER KECERAHAN */
+.brightness-toggle { display: flex; align-items: center; gap: 8px; font-size: 12px; color: var(--text-muted-gray); }
+.brightness-toggle input[type="range"] {
+  accent-color: var(--btn-gray);
+  cursor: pointer;
+  height: 4px;
+}
+
+.icon-btn {
+  background: transparent;
+  border: 1px solid transparent;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+.icon-btn:hover { background: #F1F5F9; }
+.icon-btn.active-fs {
+  background: #F1F5F9 !important;
+  border-color: #CBD5E1 !important;
+}
+.icon-btn.active-fs svg {
+  stroke: var(--btn-gray) !important;
+}
+
+.burger-btn { background: none; border: none; cursor: pointer; display: flex; flex-direction: column; gap: 4px; padding: 4px; }
+.burger-btn span { width: 20px; height: 2px; background: #475569; border-radius: 2px; }
+
+/* ================= AREA BODY & LAYOUT ================= */
+.reader-body {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  flex: 1;
+  min-height: 0;
+  position: relative;
+}
+
+/* ================= DRAWER SIDEBAR ================= */
+.page-drawer {
+  position: absolute;
+  top: 0;
+  left: -260px;
+  width: 250px;
+  height: 100%;
+  background: #FFFFFF;
+  border-right: 1px solid #E2E8F0;
+  padding: 20px 12px;
+  z-index: 100;
+  box-shadow: 4px 0 20px rgba(15, 23, 42, 0.06);
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.page-drawer.active { left: 0; }
+
+.drawer-title { font-size: 11px; color: #94A3B8; margin-bottom: 12px; padding-left: 8px; letter-spacing: 0.05em; }
+
+.lesson-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  max-height: 100%;
+  overflow-y: auto;
+  counter-reset: lesson-counter -1;
+}
+
+.lesson-btn {
+  display: flex;
+  align-items: center;
+  padding: 10px 12px;
+  font-size: 13px;
+  color: var(--text-muted-gray);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.lesson-btn::before {
+  counter-increment: lesson-counter;
+  content: counter(lesson-counter, decimal-leading-zero) ". ";
+  margin-right: 8px;
+  color: #94A3B8;
+}
+
+.lesson-btn:hover { background: #F8FAFC; color: var(--text-dark-gray); }
+.lesson-btn.active { background: #F1F5F9; color: var(--btn-gray); border-color: #CBD5E1; }
+.lesson-btn.active::before { color: var(--btn-gray); }
+
+/* ================= KONTEN UTAMA (INDEPENDENT SCROLL) ================= */
+.main-content { 
+  padding: 32px 40px; 
+  overflow-y: auto;
+  height: 100%;
+}
+
+.lesson-article h2 { font-size: 22px; color: var(--text-dark-gray) !important; margin-bottom: 16px; }
+.lesson-article h3 { font-size: 16px; color: var(--text-dark-gray); margin: 24px 0 12px 0; }
+.lesson-article p { font-size: 15px; line-height: 1.8; color: var(--text-dark-gray); margin-bottom: 16px; }
+.lesson-article hr { border: none; border-top: 1px solid #E2E8F0; margin: 24px 0; }
+
+.lesson-article img,
+.interactive-area img.svg-widget-img {
+  max-width: 240px;
+  width: 100%;
+  height: auto;
+  display: block;
+  margin: 20px auto;
+  object-fit: contain;
+}
+
+/* ================= WIDGET CONTAINER & STYLING ================= */
+.interactive-area {
+  margin-top: 24px;
+  padding: 24px;
+  background: #F8FAFC;
+  border: var(--widget-bezel-width) solid var(--widget-bezel-color) !important;
+  border-radius: 12px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.interactive-area.widget-expanded {
+  border: 1px solid var(--widget-bezel-color) !important;
+  box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+}
+
+.interactive-area input[type="number"],
+.interactive-area input[type="text"] {
+  border: 1px solid #E2E8F0;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 13px;
+  outline: none;
+  background: #FFFFFF;
+  color: var(--text-dark-gray);
+  transition: border-color 0.2s ease;
+}
+
+.interactive-area input:focus {
+  border-color: var(--btn-gray);
+}
+
+.widget-btn {
+  background: var(--btn-gray);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.widget-btn:hover {
+  background: var(--btn-gray-hover);
+}
+
+/* ================= PANEL KANAN ================= */
+.sidebar-panel { 
+  border-left: 1px solid #E2E8F0; 
+  padding: 20px 16px; 
+  background: #FAFAFA; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 16px; 
+  overflow-y: auto;
+  height: 100%;
+}
+
+.panel-block { background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 8px; padding: 14px; }
+.panel-title { font-size: 11px; color: var(--text-muted-gray); margin-bottom: 8px; }
+.panel-text { font-size: 12px; color: var(--text-dark-gray); line-height: 1.6; }
+.notes-input { width: 100%; height: 110px; border: 1px solid #E2E8F0; border-radius: 6px; padding: 8px; font-size: 12px; resize: none; color: var(--text-dark-gray); background: #F8FAFC; }
+
+/* ================= DASHBOARD HERO & CARDS ================= */
+.dashboard-hero {
+  background: linear-gradient(135deg, #F8FAFC 0%, #F1F5F9 100%);
+  border: 1px solid #E2E8F0;
+  padding: 28px 24px;
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+.hero-badge {
+  display: inline-block; 
+  background: var(--btn-gray) !important; 
+  color: #FFFFFF !important;
+  font-size: 10px; 
+  padding: 3px 10px; 
+  border-radius: 20px; 
+  margin-bottom: 10px;
+}
+
+/* JUDUL HERO UTAMA H1 BOLD ABU-ABU */
+.dashboard-hero h1 { 
+  font-size: 24px; 
+  color: var(--text-dark-gray) !important; 
+  font-weight: 700 !important;
+  margin-bottom: 8px; 
+}
+
+.hero-subtitle { 
+  font-size: 13px !important; 
+  color: var(--text-dark-gray) !important; 
+  line-height: 1.6 !important; 
+  margin-bottom: 0 !important; 
+}
+
+/* FACTS GRID */
+.facts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 24px; }
+.fact-card, .fact-card.highlight { background: #F8FAFC; border: 1px solid #E2E8F0; padding: 12px; border-radius: 8px; text-align: center; }
+.fact-number, .fact-card.highlight .fact-number { font-size: 15px; color: var(--text-dark-gray) !important; margin-bottom: 2px; }
+.fact-label { font-size: 11px; color: var(--text-muted-gray); }
+
+.grid-heading { font-size: 14px; color: var(--text-dark-gray); margin-bottom: 12px !important; }
+.roadmap-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+.roadmap-card { background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 8px; padding: 14px; }
+
+.card-step { 
+  font-size: 10px; 
+  color: #FFFFFF !important; 
+  background: var(--btn-gray) !important; 
+  padding: 2px 8px; 
+  border-radius: 4px; 
+  display: inline-block; 
+  margin-bottom: 6px; 
+}
+
+.roadmap-card h4 { font-size: 13px; color: var(--text-dark-gray); margin-bottom: 4px; }
+.roadmap-card p { font-size: 12px; color: var(--text-muted-gray); line-height: 1.5; margin-bottom: 0 !important; }
+
+@media (max-width: 850px) {
+  .reader-body { grid-template-columns: 1fr; }
+  .sidebar-panel { display: none; }
+  .roadmap-grid, .facts-grid { grid-template-columns: 1fr; }
+}
