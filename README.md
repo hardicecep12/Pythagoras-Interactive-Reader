@@ -32,27 +32,28 @@ Aplikasi ini dibangun menggunakan arsitektur front-end murni (Vanilla Web) tanpa
 
 ## Struktur Direktori Projek
 
-├── index.html                # Berkas utama HTML aplikasi
-├── css/
-│   └── style.css             # Berkas gaya kustom (UI Reader & Layout)
-├── config/
-│   └── lessons.js            # Konfigurasi urutan & metadata lesson
-├── content/                  # Modul konten materi pembelajaran
-│   ├── 00-dashboard.js
-│   ├── 01-konsep-dasar.js
-│   ├── 02-tripel-pythagoras.js
-│   ├── 03-segitiga-istimewa.js
-│   └── 04-penerapan-nyata.js
-├── images/                   # Gambar preview aplikasi
-│   ├── images_1.png
-│   └── image_2.png
-├── js/                       # Logika skrip utama
-│   ├── app.js                # Inisialisasi & kontroler aplikasi utama
-│   ├── md-loader.js          # Pemroses & pemuat konten Markdown
-│   └── widgets.js            # Komponen & elemen interaktif
-└── lib/                      # Pustaka dependen lokal
-    ├── katex/                # Pustaka KaTeX (CSS & JS)
-    └── marked/               # Pustaka Marked.js
+    Pythagoras Interactive Reader
+    ├── index.html                # Berkas utama HTML aplikasi
+    ├── css/
+    │   └── style.css             # Berkas gaya kustom (UI Reader & Layout)
+    ├── config/
+    │   └── lessons.js            # Konfigurasi urutan & metadata lesson
+    ├── content/                  # Modul konten materi pembelajaran
+    │   ├── 00-dashboard.js
+    │   ├── 01-konsep-dasar.js
+    │   ├── 02-tripel-pythagoras.js
+    │   ├── 03-segitiga-istimewa.js
+    │   └── 04-penerapan-nyata.js
+    ├── images/                   # Gambar preview aplikasi
+    │   ├── images_1.png
+    │   └── image_2.png
+    ├── js/                       # Logika skrip utama
+    │   ├── app.js                # Inisialisasi & kontroler aplikasi utama
+    │   ├── md-loader.js          # Pemroses & pemuat konten Markdown
+    │   └── widgets.js            # Komponen & elemen interaktif
+    └── lib/                      # Pustaka dependen lokal
+        ├── katex/                # Pustaka KaTeX (CSS & JS)
+        └── marked/               # Pustaka Marked.js
 
 ## Cara Menjalankan Aplikasi
 - Unduh / Clonisasi Repository
