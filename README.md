@@ -28,7 +28,7 @@ Aplikasi ini dibangun menggunakan arsitektur front-end murni (Vanilla Web) tanpa
 - HTML5 & CSS3: Struktur tata letak dan pengayaan visual UI.
 - JavaScript (ES6+): Logika aplikasi, manipulasi DOM, dan pemuatan materi.
 - Marked.js (Lokal): Parser teks Markdown ke HTML.
-- KaTeX (Lokal): Engine pemroses dan perender ekspresi matematika $	ext{\LaTeX}$.
+- KaTeX (Lokal): Engine pemroses dan perender ekspresi matematika.
 
 ## Struktur Direktori Projek
 
