@@ -32,8 +32,6 @@ Aplikasi ini dibangun menggunakan arsitektur front-end murni (Vanilla Web) tanpa
 
 ## Struktur Direktori Projek
 
-```text
-.
 ├── index.html                # Berkas utama HTML aplikasi
 ├── css/
 │   └── style.css             # Berkas gaya kustom (UI Reader & Layout)
